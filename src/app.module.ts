@@ -1,10 +1,14 @@
 import { Module } from '@nestjs/common';
+import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller';
-import { AppService } from './app.service';
+
+const mongodbURI = 'mongodb://travelers:travelers@localhost:27017/travelers?authSource=admin'
 
 @Module({
-  imports: [],
+  imports: [
+    MongooseModule.forRoot(mongodbURI),
+  ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [],
 })
 export class AppModule {}

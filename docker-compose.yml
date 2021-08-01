@@ -1,0 +1,14 @@
+version: '3'
+services:
+    mongo:
+        image: mongo:4.4
+        container_name: mongo-be-travelers-app
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: travelers
+            MONGO_INITDB_ROOT_PASSWORD: travelers
+        volumes:
+            - ./.mongo_data:/data/db
+        ports: 
+            - "27017:27017"
+volumes:
+    mongo:
