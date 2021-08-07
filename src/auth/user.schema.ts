@@ -1,10 +1,12 @@
 import { Prop, SchemaFactory, Schema} from "@nestjs/mongoose";
-import { Document, } from "mongoose";
-
+import { Document } from "mongoose";
+import { ObjectId } from 'mongodb'
 export type UserDocument = User & Document
 
 @Schema()
 export class User {
+
+    _id: ObjectId;
 
     @Prop({ required: true })
     name: string;
@@ -20,6 +22,10 @@ export class User {
 
     @Prop({ required: true })
     password: string;
+
+    constructor(user: Partial<User> = {}){
+        Object.assign(this, user);
+    }
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);
