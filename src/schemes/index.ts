@@ -1,1 +1,1 @@
-// INDEX FILE FOR SCHEMES
+export * from './user.schema';
