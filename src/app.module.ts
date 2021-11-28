@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { AppController } from './app.controller';
 import { AuthModule } from './auth/auth.module';
+import { CoreModule } from './core';
 
 const mongodbURI = 'mongodb://travelers:travelers@localhost:27017/travelers?authSource=admin'
 
@@ -9,8 +9,7 @@ const mongodbURI = 'mongodb://travelers:travelers@localhost:27017/travelers?auth
   imports: [
     MongooseModule.forRoot(mongodbURI),
     AuthModule,
+    CoreModule,
   ],
-  controllers: [AppController],
-  providers: [],
 })
 export class AppModule {}
