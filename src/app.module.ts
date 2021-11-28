@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { AuthModule } from './auth/auth.module';
+import { AuthModule } from './auth';
 import { CoreModule } from './core';
 
 const mongodbURI = 'mongodb://travelers:travelers@localhost:27017/travelers?authSource=admin'
