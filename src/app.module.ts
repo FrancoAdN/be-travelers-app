@@ -3,11 +3,9 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { AuthModule } from './auth';
 import { CoreModule } from './core';
 
-const mongodbURI = 'mongodb://travelers:travelers@localhost:27017/travelers?authSource=admin'
-
 @Module({
   imports: [
-    MongooseModule.forRoot(mongodbURI),
+    MongooseModule.forRoot(process.env.MONGO_DB_URI),
     AuthModule,
     CoreModule,
   ],
