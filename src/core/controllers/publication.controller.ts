@@ -1,5 +1,6 @@
-import { Body, Controller, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Post, Query, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
+import { ObjectId } from 'mongoose';
 import { Publication } from '..';
 import { GetUser, User } from '../../auth';
 import { PublicationPayloadDto } from '../dtos';
@@ -17,5 +18,12 @@ export class PublicationController {
   ): Promise<Publication> {
     const userId = user._id.toHexString();
     return this.publicationService.createPublication(payload, userId);
+  }
+
+  findMultipleByUser(
+    @GetUser() user: User,
+    @Query('userId') userId: string,
+  ): Promise<Publication[]> {
+    return this.publicationService.findMultipleByUser(userId);
   }
 }

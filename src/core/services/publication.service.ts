@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { Publication } from '..';
 import { PublicationPayloadDto } from '../dtos';
-import { AlbumRepository, PublicationRepository } from '../repositories';
+import { PublicationRepository } from '../repositories';
 import { ObjectId } from 'mongodb';
-import { AlbumService } from '.';
+import { AlbumService } from './album.service';
 
 @Injectable()
 export class PublicationService {
@@ -12,7 +12,10 @@ export class PublicationService {
     protected readonly albumService: AlbumService,
   ) {}
 
-  async createPublication(payload: PublicationPayloadDto, userId: string) {
+  async createPublication(
+    payload: PublicationPayloadDto,
+    userId: string,
+  ): Promise<Publication> {
     // update album entity
     const albumId = new ObjectId(payload.albumId);
     await this.albumService.markAlbumAsPublished(albumId, userId);
@@ -23,5 +26,9 @@ export class PublicationService {
     });
 
     return this.repository.createOne(publication, userId);
+  }
+
+  findMultipleByUser(userId: string): Promise<Publication[]> {
+    return this.repository.findMultipleByUserId(userId);
   }
 }
