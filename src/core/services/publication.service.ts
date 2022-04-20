@@ -4,6 +4,7 @@ import { PublicationPayloadDto } from '../dtos';
 import { PublicationRepository } from '../repositories';
 import { ObjectId } from 'mongodb';
 import { AlbumService } from './album.service';
+import { FilterQuery } from 'mongoose';
 
 @Injectable()
 export class PublicationService {
@@ -21,7 +22,7 @@ export class PublicationService {
     await this.albumService.markAlbumAsPublished(albumId, userId);
 
     const publication = new Publication({
-      albumId: new ObjectId(payload.albumId),
+      albumId,
       caption: payload.caption,
     });
 
@@ -30,5 +31,17 @@ export class PublicationService {
 
   findMultipleByUser(userId: string): Promise<Publication[]> {
     return this.repository.findMultipleByUserId(userId);
+  }
+
+  async markPublicationAsSeen(
+    publicationId: ObjectId,
+    userId: string,
+  ): Promise<void> {
+    const filter: FilterQuery<Publication> = {
+      id: publicationId,
+      createdBy: { $ne: userId },
+    };
+    await this.repository.findOne(filter, null, true);
+    await this.repository.appendSeenBy(publicationId, userId);
   }
 }
