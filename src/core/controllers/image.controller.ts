@@ -15,8 +15,8 @@ import { ImagePayloadDto } from '../dtos';
 import { Readable } from 'stream';
 import { AuthGuard } from '@nestjs/passport';
 
-@Controller('image')
 @UseGuards(AuthGuard('jwt'))
+@Controller()
 export class ImageController {
   constructor(private readonly imageService: ImageService) {}
 

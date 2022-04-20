@@ -1,12 +1,10 @@
-import { IsNotEmpty, IsString } from "class-validator";
-import { ObjectId } from "mongoose";
+import { IsNotEmpty, IsString } from 'class-validator';
 
 export class PublicationPayloadDto {
-    @IsNotEmpty()
-    albumId: string;
+  @IsNotEmpty()
+  albumId: string;
 
-    @IsString()
-    @IsNotEmpty()
-    caption: string;
-
+  @IsString()
+  @IsNotEmpty()
+  caption: string;
 }
