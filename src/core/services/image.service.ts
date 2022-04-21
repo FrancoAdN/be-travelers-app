@@ -24,7 +24,6 @@ export class ImageService {
     if (s3Response) {
       image = await this.repository.createOne(
         this.createImage(s3Response.Location, parentAlbum, userId),
-        userId,
       );
       if (!image) {
         await this.contentService.deleteMediaContent(s3Response.Key);

@@ -26,7 +26,7 @@ export class PublicationService {
       caption: payload.caption,
     });
 
-    return this.repository.createOne(publication, userId);
+    return this.repository.createOne(publication);
   }
 
   findMultipleByUser(userId: string): Promise<Publication[]> {
