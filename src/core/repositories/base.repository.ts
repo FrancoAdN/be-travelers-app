@@ -9,7 +9,7 @@ type BaseDocument = any & Document;
 export abstract class BaseRepository {
   constructor(protected readonly model: Model<BaseDocument>) {}
 
-  createOne(entity: object, userId: string): Promise<BaseDocument> {
+  createOne(entity: object): Promise<BaseDocument> {
     return this.model.create(entity);
   }
 
