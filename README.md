@@ -2,4 +2,7 @@
 eval $(direnv hook bash)
 
 
-`album.publish` endpoint
+Create a monorepo
+* account API
+* travelers API
+* core lib
