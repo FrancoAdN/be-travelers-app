@@ -24,4 +24,8 @@ export class AlbumService {
   create(album: Album): Promise<Album> {
     return this.repository.createOne(album);
   }
+
+  findByOwner(userId: ObjectId): Promise<Album[]> {
+    return this.repository.findByOwner(userId.toHexString());
+  }
 }

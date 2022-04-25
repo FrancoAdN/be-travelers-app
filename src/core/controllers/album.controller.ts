@@ -1,4 +1,4 @@
-import { Body, Controller, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { AlbumService } from '../services';
 import { GetUser, User } from '../../auth';
@@ -17,5 +17,10 @@ export class AlbumController {
     @Body() albumDto: AlbumPayloadDto,
   ): Promise<Album> {
     return this.albumService.create(createAlbumEntity(albumDto, user));
+  }
+
+  @Get('album.findByOwner')
+  findByOwner(@GetUser() user: User): Promise<Album[]> {
+    return this.albumService.findByOwner(user._id);
   }
 }
