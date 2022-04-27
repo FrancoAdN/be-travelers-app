@@ -1,0 +1,46 @@
+{
+  "name": "@travelers/travelers-api",
+  "version": "0.0.1",
+  "description": "Travelers API",
+  "private": true,
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "lint-md": "remark .",
+    "format-md": "remark . -o",
+    "format": "prettier --write \"src/**/*.ts\" && npm run format-md",
+    "start": "ts-node -r tsconfig-paths/register src/main.ts",
+    "start:dev": "nodemon",
+    "start:debug": "nodemon --config nodemon-debug.json",
+    "start:prod": "node dist/main.js",
+    "start:pm2": "npm run pm2:monitor:disable && pm2-runtime start dist/src/main.js -i -1 --max-memory-restart 512M --raw",
+    "lint": "eslint -c .eslintrc.js --ext ts src/ && npm run lint-md",
+    "lint:check": "eslint -c .eslintrc.js --ext .ts ./src",
+    "lint:ci:check": "eslint -c .eslintrc.js --ext .ts ./src --quiet",
+    "lint:fix": "eslint -c .eslintrc.js --ext .ts ./src --fix",
+    "test": "jest --runInBand",
+    "test:cov": "jest --coverage --runInBand",
+    "test:watch": "jest --watch",
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+    "test:ci:cov": "jest --runInBand --ci --reporters=jest-html-reporter --coverageReporters=lcov --coverage",
+    "clean:dist": "rimraf dist",
+    "clean:lock": "rimraf package-lock.json",
+    "precise-commits": "precise-commits --check-only --whitelist=\"src/**/*.ts\"",
+    "pm2:monitor:disable": "pm2 set pm2:sysmonit false && pm2 unmonitor main",
+    "pm2:monitor:enable": "pm2 set pm2:sysmonit true"
+  },
+  "dependencies": {
+    "@travelers/core-lib": "^0.0.1",
+    "@nestjs/common": "^8.0.0",
+    "@nestjs/core": "^8.0.0",
+    "@nestjs/platform-express": "^8.0.0",
+    "pm2": "^5.1.2",
+    "reflect-metadata": "^0.1.13",
+    "response-time": "^2.3.2",
+    "typescript": "4.4.4"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.7",
+    "nodemon": "^1.18.3",
+    "ts-node": "^10.4.0"
+  }
+}
