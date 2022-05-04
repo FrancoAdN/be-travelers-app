@@ -20,15 +20,15 @@ jobs:
         run: npm ci
       
       - name: Clean
-        run: npm clean
+        run: npm run clean
 
       - name: Bootstrap
-        run: npm bootstrap
+        run: npm run bootstrap
       
       - name: Build
-        run: npm build
+        run: npm run build
 
       - name: Lint
-        run: npm lint
+        run: npm run lint
 
       
