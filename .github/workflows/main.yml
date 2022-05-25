@@ -10,13 +10,13 @@ on:
 jobs:
 
   build:
+    if: contains(github.event.pull_request.labels.*.name, 'draft')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: 14
-
 
       - name: Install
         run: npm ci
