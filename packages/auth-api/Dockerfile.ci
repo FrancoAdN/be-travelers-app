@@ -1,0 +1,14 @@
+FROM node:14
+
+WORKDIR /srv/app
+
+COPY node_modules ./node_modules
+
+COPY packages/auth-api/package.json ./packages/auth-api/package.json
+COPY packages/auth-api/dist ./packages/auth-api/dist
+COPY packages/auth-api/node_modules ./packages/auth-api/node_modules
+
+WORKDIR /srv/app/packages/auth-api
+
+EXPOSE 3000
+CMD [ "npm", "run", "start:prod"]
