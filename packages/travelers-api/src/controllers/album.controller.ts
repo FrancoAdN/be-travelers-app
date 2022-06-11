@@ -7,7 +7,7 @@ import {
   Album,
   AlbumPayloadDto,
   createAlbumEntity,
-} from '@travelers/core-lib';
+} from '@francoadn/ta-core-lib';
 
 @UseGuards(AuthGuard('jwt'))
 @Controller()

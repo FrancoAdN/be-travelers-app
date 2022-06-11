@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { AuthModule, TravelersModule } from '@travelers/core-lib';
+import { AuthModule, TravelersModule } from '@francoadn/ta-core-lib';
 import {
   AlbumController,
   ImageController,

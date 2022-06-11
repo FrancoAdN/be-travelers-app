@@ -1,0 +1,14 @@
+FROM node:14
+
+WORKDIR /srv/app
+
+COPY node_modules ./node_modules
+
+COPY packages/travelers-api/package.json ./packages/travelers-api/package.json
+COPY packages/travelers-api/dist ./packages/travelers-api/dist
+COPY packages/travelers-api/node_modules ./packages/travelers-api/node_modules
+
+WORKDIR /srv/app/packages/travelers-api
+
+EXPOSE 4000
+CMD [ "npm", "run", "start:prod"]
