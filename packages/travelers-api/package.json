@@ -1,6 +1,6 @@
 {
   "name": "@travelers/travelers-api",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Travelers API",
   "private": true,
   "publishConfig": {
@@ -36,7 +36,7 @@
     "@nestjs/common": "^8.0.0",
     "@nestjs/core": "^8.0.0",
     "@nestjs/platform-express": "^8.0.0",
-    "@travelers/core-lib": "^0.1.0",
+    "@travelers/core-lib": "^0.1.1",
     "pm2": "^5.1.2",
     "reflect-metadata": "^0.1.13",
     "response-time": "^2.3.2",
