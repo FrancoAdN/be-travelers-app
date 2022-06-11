@@ -4,24 +4,29 @@ import {
   MaxLength,
   Matches,
   IsEmail,
+  IsDefined,
 } from 'class-validator';
 
 export class SignUpDto {
+  @IsDefined()
   @IsString()
   @MinLength(1)
   @MaxLength(20)
   name: string;
 
+  @IsDefined()
   @IsString()
   @MinLength(1)
   @MaxLength(20)
   lastname: string;
 
+  @IsDefined()
   @IsString()
   @MinLength(4)
   @MaxLength(20)
   username: string;
 
+  @IsDefined()
   @IsString()
   @MinLength(4)
   @MaxLength(20)
@@ -30,6 +35,7 @@ export class SignUpDto {
   })
   password: string;
 
+  @IsDefined()
   @IsString()
   @IsEmail()
   email: string;

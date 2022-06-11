@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "Travelers API",
   "private": true,
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@FrancoAdN"
+  },
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "lint-md": "remark .",
