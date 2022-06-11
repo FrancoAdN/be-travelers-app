@@ -1,6 +1,6 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 
-import * as bcrypt from 'bcrypt';
+// import * as bcrypt from 'bcrypt';
 
 import { JwtService } from '@nestjs/jwt';
 import { ObjectId } from 'mongodb';
@@ -17,14 +17,14 @@ export class AuthService {
 
   async signUp(signUpDto: SignUpDto): Promise<User> {
     const { name, lastname, username, email, password } = signUpDto;
-    const salt = await bcrypt.genSalt();
-    const hash = await bcrypt.hash(password, salt);
+    // const salt = await bcrypt.genSalt();
+    // const hash = await bcrypt.hash(password, salt);
     const user = new User({
       name,
       lastname,
       username,
       email,
-      password: hash,
+      password,
     });
     return this.repository.signUp(user);
   }

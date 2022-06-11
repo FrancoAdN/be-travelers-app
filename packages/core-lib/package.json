@@ -4,6 +4,9 @@
   "private": false,
   "description": "Annotations Core Library",
   "author": "",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@FrancoAdN"
+  },
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "lint-md": "remark .",
@@ -39,11 +42,11 @@
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "typescript": "4.4.4",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "rxjs": "^7.5.5"
   },
   "devDependencies": {
     "@types/express": "^4.16.0",
-    "rxjs": "^6.5.2",
     "ts-node": "^10.4.0"
   }
 }

@@ -1,6 +1,9 @@
 {
   "name": "be-travelers-app",
   "private": true,
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@FrancoAdN"
+  },
   "scripts": {
     "bootstrap": "lerna bootstrap --hoist",
     "bootstrap:dev": "npm run clean && lerna bootstrap --hoist && npm run build",
