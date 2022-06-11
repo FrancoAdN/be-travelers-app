@@ -19,7 +19,8 @@
     "husky": "npm run lint && npm run precise-commits",
     "clean": "lerna clean --yes && npm run clean:dist",
     "clean:dist": "lerna run clean:dist",
-    "clean:lock": "lerna run clean:lock"
+    "clean:lock": "lerna run clean:lock",
+    "publish": "lerna run publish"
   },
   "husky": {
     "hooks": {
