@@ -17,7 +17,7 @@
     "clean": "lerna clean --yes && npm run clean:dist",
     "clean:dist": "lerna run clean:dist",
     "clean:lock": "lerna run clean:lock",
-    "publish": "lerna run publish"
+    "release": "lerna run build && lerna publish"
   },
   "husky": {
     "hooks": {

@@ -17,6 +17,6 @@ jobs:
           scope: '@FrancoAdN'
 
       - run: npm install
-      - run: lerna publish minor
+      # - run: lerna publish minor
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
