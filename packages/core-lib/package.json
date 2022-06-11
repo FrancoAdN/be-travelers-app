@@ -1,6 +1,6 @@
 {
   "name": "@travelers/core-lib",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "private": false,
   "description": "Annotations Core Library",
   "author": "",
@@ -26,8 +26,10 @@
     "precise-commits": "precise-commits --check-only --whitelist=\"lib/**/*.ts\""
   },
   "dependencies": {
+    "@nestjs/common": "^8.0.0",
+    "@nestjs/core": "^8.0.0",
+    "@nestjs/jwt": "^8.0.0",
     "@nestjs/mongoose": "^8.0.0",
-    "mongoose": "^5.13.5",
     "@nestjs/passport": "^8.0.1",
     "@nestjs/platform-express": "^8.0.0",
     "@types/passport-jwt": "^3.0.6",
@@ -36,14 +38,12 @@
     "class-transformer": "^0.4.0",
     "class-validator": "^0.13.1",
     "lodash": "^4.17.19",
-    "@nestjs/common": "^8.0.0",
-    "@nestjs/core": "^8.0.0",
-    "@nestjs/jwt": "^8.0.0",
+    "mongoose": "^5.13.5",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
-    "typescript": "4.4.4",
     "rimraf": "^3.0.2",
-    "rxjs": "^7.5.5"
+    "rxjs": "^7.5.5",
+    "typescript": "4.4.4"
   },
   "devDependencies": {
     "@types/express": "^4.16.0",

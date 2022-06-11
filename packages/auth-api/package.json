@@ -1,6 +1,6 @@
 {
   "name": "@travelers/auth-api",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Auth API",
   "private": true,
   "publishConfig": {
@@ -32,15 +32,15 @@
     "pm2:monitor:enable": "pm2 set pm2:sysmonit true"
   },
   "dependencies": {
-    "@travelers/core-lib": "^0.0.1",
     "@nestjs/common": "^8.0.0",
     "@nestjs/core": "^8.0.0",
     "@nestjs/platform-express": "^8.0.0",
+    "@travelers/core-lib": "^0.1.0",
     "pm2": "^5.1.2",
     "reflect-metadata": "^0.1.13",
     "response-time": "^2.3.2",
-    "typescript": "4.4.4",
-    "rxjs": "^7.5.5"
+    "rxjs": "^7.5.5",
+    "typescript": "4.4.4"
   },
   "devDependencies": {
     "@types/node": "^16.11.7",
