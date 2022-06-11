@@ -1,13 +1,13 @@
 {
   "name": "@travelers/auth-api",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Auth API",
   "private": true,
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/@FrancoAdN"
   },
   "repository": {
-    "type":"git",
+    "type": "git",
     "url": "git+https://github.com/FrancoAdN/be-travelers-app.git"
   },
   "scripts": {
@@ -39,7 +39,7 @@
     "@nestjs/common": "^8.0.0",
     "@nestjs/core": "^8.0.0",
     "@nestjs/platform-express": "^8.0.0",
-    "@travelers/core-lib": "^0.1.1",
+    "@travelers/core-lib": "^0.1.2",
     "pm2": "^5.1.2",
     "reflect-metadata": "^0.1.13",
     "response-time": "^2.3.2",
