@@ -12,7 +12,17 @@ services:
       dockerfile: ./packages/auth-api/Dockerfile.ci
     environment:
       - PORT=3000
-      - MONGO_DB_URI='mongodb://travelers:travelers@travelers_net:27017/travelers?authSource=admin'
+      - MONGO_DB_URI=mongodb://travelers:travelers@travelers_net:27017/travelers?authSource=admin
+      - JWT_SECRET_KEY='topSecretKey'
+
+  travelers-travelers-api:
+    container_name: travelers-travelers-api
+    build:
+      context: .
+      dockerfile: ./packages/travelers-api/Dockerfile.ci
+    environment:
+      - PORT=3000
+      - MONGO_DB_URI=mongodb://travelers:travelers@travelers_net:27017/travelers?authSource=admin
       - JWT_SECRET_KEY='topSecretKey'
 
 

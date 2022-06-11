@@ -1,5 +1,5 @@
 import { NestFactory } from '@nestjs/core';
-import { LoggingInterceptor } from '@travelers/core-lib';
+import { LoggingInterceptor } from '@francoadn/ta-core-lib';
 import { AppModule } from './app.module';
 import { PREFIX } from './constants/constants';
 
