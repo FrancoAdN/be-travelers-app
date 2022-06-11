@@ -6,7 +6,10 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/@FrancoAdN"
   },
-  "repository": "https://github.com/FrancoAdN/be-travelers-app.git",
+  "repository": {
+    "type":"git",
+    "url": "git+https://github.com/FrancoAdN/be-travelers-app.git"
+  },
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "lint-md": "remark .",
