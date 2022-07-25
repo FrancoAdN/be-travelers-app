@@ -68,4 +68,9 @@ export class PublicationController {
       user._id.toHexString(),
     );
   }
+
+  @Get('publication.findAll')
+  findAllPublications(@GetUser() user: User): Promise<Publication[]> {
+    return this.publicationService.findAllPublications(user);
+  }
 }
