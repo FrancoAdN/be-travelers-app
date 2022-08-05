@@ -4,7 +4,7 @@ import {
   SignUpDto,
   CredentialsDto,
   User,
-} from '@francoadn/ta-core-lib';
+} from '@travelers/core-lib';
 
 @Controller()
 export class AuthController {

@@ -16,7 +16,7 @@ import {
   ImageService,
   User,
   Image,
-} from '@francoadn/ta-core-lib';
+} from '@travelers/core-lib';
 
 @UseGuards(AuthGuard('jwt'))
 @Controller()

@@ -1,5 +1,11 @@
-import { AccountService, GetUser, User } from '@francoadn/ta-core-lib';
-import { BadRequestException, Controller, Param, Put } from '@nestjs/common';
+import { AccountService, GetUser, User } from '@travelers/core-lib';
+import {
+  BadRequestException,
+  Controller,
+  // Get,
+  Param,
+  Put,
+} from '@nestjs/common';
 import { ObjectId } from 'mongodb';
 
 @Controller()
@@ -20,4 +26,7 @@ export class AccountController {
     await this.accountService.findById(parsedFollowed);
     await this.accountService.followUser(user._id, followed);
   }
+
+  // @Get()
+  // findAccountInformation() {}
 }
