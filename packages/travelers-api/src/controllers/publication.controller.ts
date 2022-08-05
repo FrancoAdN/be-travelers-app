@@ -15,7 +15,7 @@ import {
   User,
   Publication,
   PublicationService,
-} from '@francoadn/ta-core-lib';
+} from '@travelers/core-lib';
 import { ObjectId } from 'mongodb';
 
 @UseGuards(AuthGuard('jwt'))
