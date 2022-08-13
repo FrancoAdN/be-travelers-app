@@ -18,7 +18,7 @@ export class AuthRepository {
       .findOne({
         email,
       })
-      .select('_id password')
+      .select('_id password avatar username')
       .exec();
   }
 

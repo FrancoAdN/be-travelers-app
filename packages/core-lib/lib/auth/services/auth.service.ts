@@ -7,6 +7,7 @@ import { ObjectId } from 'mongodb';
 import { AuthRepository } from '../repositories';
 import { User } from '../schemas';
 import { CredentialsDto, SignUpDto } from '../dtos';
+import { USER_DEFAULT_AVATAR } from '../constants/user-default.constants';
 
 @Injectable()
 export class AuthService {
@@ -25,6 +26,7 @@ export class AuthService {
       username,
       email,
       password,
+      avatar: USER_DEFAULT_AVATAR,
     });
     return this.repository.signUp(user);
   }
@@ -33,7 +35,11 @@ export class AuthService {
     const { email, password } = credentials;
     const user: User = await this.repository.findOneByEmail(email);
     if (user && user.password === password) {
-      const payload = { userId: user._id };
+      const payload = new User({
+        _id: user._id,
+        avatar: user.avatar,
+        username: user.username,
+      });
       const token = this.jwtService.sign(payload);
       return { token };
     }
