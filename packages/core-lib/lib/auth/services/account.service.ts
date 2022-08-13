@@ -21,4 +21,8 @@ export class AccountService {
   findById(userId: ObjectId): Promise<User> {
     return this.repository.findById(userId);
   }
+
+  findAccountDetails(userId: string): Promise<User> {
+    return this.repository.findAccountDetails(new ObjectId(userId));
+  }
 }

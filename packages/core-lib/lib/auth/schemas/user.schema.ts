@@ -23,13 +23,20 @@ export class User {
   @Prop({ required: true, type: String })
   password: string;
 
-  // @Prop({required: true})
-  // avatar: string;
-  @Prop({ required: true, type: [String] })
+  @Prop({ required: true })
+  avatar: string;
+
+  @Prop({ required: true, default: '' })
+  biography: string;
+
+  @Prop({ required: true, type: [String], default: [] })
   following: string[];
 
-  @Prop({ required: true, type: [String] })
+  @Prop({ required: true, type: [String], default: [] })
   followers: string[];
+
+  totalFollowing: number;
+  totalFollowers: number;
 
   constructor(user: Partial<User> = {}) {
     Object.assign(this, user);

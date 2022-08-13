@@ -26,4 +26,23 @@ export class AccountRepository extends BaseRepository {
   findById(id: ObjectId): Promise<User> {
     return this.findOne({ _id: id }, '-password', true);
   }
+
+  findAccountDetails(userId: ObjectId): Promise<User> {
+    return this.model
+      .aggregate()
+      .match({
+        _id: userId,
+      })
+      .addFields({
+        totalFollowing: { $size: '$following' },
+        totalFollowers: { $size: '$followers' },
+      })
+      .project({
+        password: 0,
+        email: 0,
+        following: 0,
+        followers: 0,
+      })
+      .exec();
+  }
 }
