@@ -35,11 +35,11 @@ export class AuthService {
     const { email, password } = credentials;
     const user: User = await this.repository.findOneByEmail(email);
     if (user && user.password === password) {
-      const payload = new User({
+      const payload = {
         _id: user._id,
         avatar: user.avatar,
         username: user.username,
-      });
+      };
       const token = this.jwtService.sign(payload);
       return { token };
     }
